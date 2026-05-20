@@ -1,138 +1,588 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ChapinTech | Soporte Técnico Futurista</title>
+<!doctype html>
+<html lang="en" data-bs-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="index,follow">
+    <!-- Social Share Preview -->
+    <meta property="og:title" content="Anna Kwas | Cybersecurity Analyst Portfolio">
+    <meta property="og:description" content="Cybersecurity Analyst specializing in threat detection, SIEM, Linux, and incident response.">
+    <meta property="og:image" content="https://a-code1819.github.io/AnnasCV/pics/AnnaKwas.png">
+    <meta property="og:url" content="https://a-code1819.github.io/AnnasCV/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Anna Kwas Portfolio">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@AnnaKwas">
+    <meta name="twitter:creator" content="@AnnaKwas">
+    <meta name="twitter:title" content="Anna Kwas | Cybersecurity Analyst Portfolio">
+    <meta name="twitter:description" content="Cybersecurity Analyst specializing in threat detection, SIEM, Linux, and incident response.">
+    <meta name="twitter:image" content="https://a-code1819.github.io/AnnasCV/pics/AnnaKwas.png">
+    <meta name="description" content="Cybersecurity Analyst Portfolio. Experience with SIEM, Linux, networking, and incident response.">
+    <meta name="author" content="Anna Kwas">
+    <meta name="keywords" content="Cybersecurity Analyst, SIEM, SOC, Linux, Incident Response, Portfolio">
+    <title>Anna Kwas | Cybersecurity Analyst Portfolio</title>
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" 
+    rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" 
+    crossorigin="anonymous">
+    <!-- Icons -->
+    <script src="https://kit.fontawesome.com/b708182106.js" crossorigin="anonymous" defer></script>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Electrolize&display=swap"
+      rel="stylesheet"
+    />
+    <!-- SEO -->
+    <link rel="canonical" href="https://a-code1819.github.io/AnnasCV/">
+    <!--Favicon-->
+    <link rel="icon" type="image/svg+xml" sizes="64x64" href="crossfavicon.svg"/>
+    <!-- Preload images -->
+    <link rel="preload" as="image" href="./pics/annakwas.png">
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="icon" type="image/png" href="chapintech-logo.png" />
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
+  <body data-bs-spy="scroll" data-bs-target="#navbar" data-bs-offset="80" tabindex="0">
+    <div id="terminalIntro">
+      <div class="terminal-box">
+        <button id="skipIntro" style="float:right">Skip</button>
+        <div class="terminal-header">
+          <span class="dot red"></span>
+          <span class="dot yellow"></span>
+          <span class="dot green"></span>
+          <span class="terminal-title">security-console</span>
+        </div>
+        <pre id="terminalText"></pre>
+      </div>
+    </div>
+    <canvas id="matrixCanvas"></canvas>
+    <div class="ambient ambient-1"></div>
+    <div class="ambient ambient-2"></div>
+    <div class="ambient ambient-3"></div>
 
-<section class="hero">
+    <!-- Header / Navbar -->
+    <header class="sticky-top">
+      <nav id="navbar" class="navbar navbar-expand-lg navbar-dark">
+        <div class="container d-flex align-items-center">
 
-  <canvas id="stars"></canvas>
-  <canvas id="particles"></canvas>
+        <!-- Toggler (LEFT on mobile) -->
+          <button
+            class="navbar-toggler order-1 order-lg-2"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false">
+            <span class="navbar-toggler-icon"></span>
+          </button>
 
-  <!-- BACKGROUND SYSTEM (THIS MAKES IT LOOK REAL) -->
-  <div class="bg-space"></div>
-  <div class="bg-vignette"></div>
-  <div class="hud-frame"></div>
-  <div class="top-light"></div>
-  <div class="hud"></div>
-  <div class="top-glow-line"></div>
-  <div class="hero-focus"></div>
+          <!-- Brand (RIGHT on mobile, LEFT on desktop) -->
+            <a class="navbar-brand fw-bold ms-auto order-2 order-lg-1" href="#home">
+              <span class="icon">✝</span> Anna Kwas
+            </a>
 
-  <div class="energy-core"></div>
+          <!-- Menu -->
+          <div class="collapse navbar-collapse order-3" id="navbarNav">
+              <ul class="navbar-nav ms-lg-auto">
+                <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
+                <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
+                <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+                <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+              </ul>
+          </div>
 
-<header class="nav">
+            <div class="hamburger">
+              <span></span>
+              <span></span>
+              <span></span>    
+            </div>
+        </div>
+      </nav>
+    </header>
 
-  <div class="logo">
-    <img src="chapintech-logo.png" alt="ChapinTech logo">
-    <span class="logo-text">ChapinTech</span>
-  </div>
+    <!-- Main -->
+    <main id="home" role="main" class="container py-5 mb-5">
+      <!-- Hero -->
+      <section id="hero" class="reveal">
+         <div class="hero-grid"></div>
 
-  <nav class="nav-links">
+         <div class="hero-content">
+            <div class="hero-badge">
+              <span></span>
+              Cybersecurity Analyst • SOC Pathway
+            </div>
 
-    <a href="#" class="nav-link">Inicio</a>
-    <span class="divider"></span>
+            <h1 class="hero-title">
+              Hi, I'm Anna. <br>
+              <span> I Secure Digital Infrastructure and Protect Data.</span>
+            </h1>
 
-    <a href="#" class="nav-link">Servicios</a>
-    <span class="divider"></span>
+            <p class="hero-description">
+              Junior Cybersecurity Analyst focused on threat detection,
+              SIEM operations, incident response, network defense,
+              and secure system architecture.
+            </p>
 
-    <a href="soporte.html" class="nav-link">Soporte</a>
-    <span class="divider"></span>
+            <div class="hero-buttons">
+              <a href="#projects" class="btn btn-primary">
+                View Projects
+              </a>
 
-    <a href="#" class="nav-link">Nosotros</a>
-    <span class="divider"></span>
+              <a href="AnnaKwasCV.pdf" download class="btn btn-outline-light">
+                Download CV
+              </a>
+            </div>
+            <br>
+            <div class="hero-stats">
+              <div class="stat-card">
+                <h3>18+</h3>
+                <p>Months Learning Cybersecurity</p>
+              </div>
 
-    <a href="#" class="nav-link">Contacto</a>
+              <div class="stat-card">
+                <h3>5+</h3>
+                <p>Security Projects</p>
+              </div>
 
-  </nav>
+              <div class="stat-card">
+                <h3>3</h3>
+                <p>Industry Certifications</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
-  <div class="nav-actions">
-    <span class="contact-phone">+502 1234-5678</span>
+      <div class="hero-image-wrapper">
+         <div class="hero-ring"></div>
+         <div class="hero-ring ring-2"></div>
 
-    <a href="#" class="cta-top">
-      Contáctanos
+        <img
+          src="./pics/annakwas.png"
+          alt="Anna Kwas Portrait"
+          class="hero-img"
+        />
+      </div>
+    </section>
+     <br>
+
+      <!-- Skills -->
+      <section id="skills" class="mb-5 reveal">
+        <h3 class="section-title h4 mb-4">My Skills</h3>
+
+        <div class="row g-4">
+          <div class="col-md-6">
+            <article class="card card-ghost p-3 h-100">
+              <ul class="list-unstyled mb-0">
+                <li class="mb-3">
+                  <i class="fa-solid fa-code me-2"></i>
+                  HTML, CSS3, JavaScript, Bootstrap
+                  <div class="progress mt-2"><div class="progress-bar" data-progress="90"></div></div>
+                </li>
+                <li class="mb-3">
+                  <i class="fa-solid fa-network-wired me-2"></i>
+                  Internet Protocols
+                  <div class="progress mt-2"><div class="progress-bar" data-progress="80"></div></div>
+                </li>
+                <li class="mb-3">
+                  <i class="fa-brands fa-python me-2"></i>
+                  Python (beginner–intermediate)
+                  <div class="progress mt-2"><div class="progress-bar" data-progress="60"></div></div>
+                </li>
+                <li class="mb-1">
+                  <i class="fa-solid fa-screwdriver-wrench me-2"></i>
+                  Troubleshooting (Windows 10/11, Android)
+                  <div class="progress mt-2"><div class="progress-bar" data-progress="85"></div></div>
+                </li>
+              </ul>
+            </article>
+          </div>
+
+          <div class="col-md-6">
+            <article class="card card-ghost p-3 h-100">
+              <ul class="list-unstyled mb-0">
+                <li class="mb-3">
+                  <i class="fa-solid fa-lock me-2"></i>
+                  SIEM tools / IDS (entry level)
+                  <div class="progress mt-2"><div class="progress-bar" data-progress="55"></div></div>
+                </li>
+                <li class="mb-3">
+                  <i class="fa-solid fa-terminal me-2"></i>
+                  Linux & SQL (entry level)
+                  <div class="progress mt-2"><div class="progress-bar" data-progress="60"></div></div>
+                </li>
+                <li class="mb-1">
+                  <i class="fa-solid fa-user-tie me-2"></i>
+                  Professional Demeanor & Customer Care
+                  <div class="progress mt-2"><div class="progress-bar" data-progress="95"></div></div>
+                </li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Experience -->
+      <section id="experience" class="mb-5 reveal">
+        <h3 class="section-title h4 mb-3">My Experience</h3>
+        <article class="card card-ghost p-3">
+          <h4 class="h5 mb-1">Customer Representative | Everise (American Airlines Account) <span class="text-white-50">| November 2025 - Present</span></h4>
+          <p class="mb-0">
+            Currently assisting over 40+ customers daily with their reservations 
+            whether it's due to involuntary changes to their reservations, 
+            canceled flights, or a Travel Notice, also booking new reservations, 
+            providing up to date information regarding American Airlines products 
+            and fare prices meeting with customer needs.
+          </p>
+        </article>
+        <br>
+        <article class="card card-ghost p-3">
+          <h4 class="h5 mb-1">AI Teacher | Christian American School (CAS) <span class="text-white-50">| August 2025 - October 2025</span></h4>
+          <p class="mb-0">
+            Taught middle schoolers 
+            and high schoolers the Christian perspective of AI 
+            and how to use it cautiously instead of reckless, 
+            teaching them algorithms and study projects.
+          </p>
+        </article>
+        <br>
+        <article class="card card-ghost p-3">
+          <h4 class="h5 mb-1">Technical Support |Teleperformance (COX Communications Account) <span class="text-white-50">| October 2023 - December 2023</span></h4>
+          <p class="mb-0">
+            Resolved 40+ technical cases per day related to internet connectivity, email issues, 
+            and device troubleshooting for COX Communications customers.
+            Maintained 95%+ customer satisfaction
+            Reduced troubleshooting time by 15% through 
+            efficient problem-solving and clear communication.
+          </p>
+        </article>
+      </section>
+
+      <!-- Education -->
+      <section id="education" class="mb-5 reveal">
+        <h3 class="section-title h4 mb-3">My Education</h3>
+        <article class="card card-ghost p-3">
+          <h4 class="h5 mb-1">Highschool Diploma <span class="text-white-50">| 2016 - 2020</span></h4>
+          <p class="mb-0">
+            12 Stone Academy, Miami, Florida, USA
+          </p>
+        </article>
+      </section>
+
+      <!-- Certifications -->
+      <section id="certifications" class="mb-5 reveal">
+        <h3 class="section-title h4 mb-3">My Certifications</h3>
+        <div class="row g-4">
+          <div class="col-md-6 col-lg-4">
+            <div class="card card-ghost h-100 text-center p-3">
+              <img
+                src="./pics/cybersecert.png"
+                alt="Google Cybersecurity Analyst Certificate"
+                class="img-fluid rounded mb-3"
+                style="max-height: 150px; object-fit: cover;"
+                loading="lazy"
+                decoding="async"
+              />
+              <h4 class="h6 mb-1">Google Cybersecurity Analyst</h4>
+              <p>Comprehensive training in cybersecurity fundamentals, including threat detection, SIEM tools, Linux, and incident response.</p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4">
+            <div class="card card-ghost h-100 text-center p-3">
+              <img
+                src="./pics/comptia.jpeg"
+                alt="CompTIA Security Cert"
+                class="img-fluid rounded mb-3"
+                style="max-height: 150px; object-fit: cover;"
+                loading="lazy"
+                decoding="async"
+              />
+              <h4 class="h6 mb-1">CompTIA Security+ SYO-501</h4>
+              <p>Validated foundational cybersecurity skills and knowledge required for entry-level security roles.</p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4">
+            <div class="card card-ghost h-100 text-center p-3">
+              <img
+                src="./pics/itcert.png"
+                alt="Google IT Support Certificate"
+                class="img-fluid rounded mb-3"
+                style="max-height: 150px; object-fit: cover;"
+                loading="lazy"
+                decoding="async"
+              />
+              <h4 class="h6 mb-1">Google IT Support</h4>
+              <p>Entry-level IT support skills including troubleshooting, customer service, and foundational IT knowledge.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!--Projects-->
+      <section id="projects" class="mb-5 reveal">
+        <h3 class="section-title h4 mb-3">My Projects</h3>
+        <br>
+        <div class="project-top">
+          <span class="project-tag">Python Security Tool</span>
+
+          <h3>Python Network Scanner</h3>
+
+          <p>
+            Multi-threaded network reconnaissance scanner capable
+            of identifying active hosts, exposed ports, and
+            vulnerable services across local infrastructure.
+          </p>
+        </div>
+
+      <div class="project-metrics">
+          <div>
+            <strong>40%</strong>
+            <span>Faster Scanning</span>
+          </div>
+        <div>
+          <strong>15+</strong>
+          <span>Hosts Detected</span>
+        </div>
+
+        <div>
+          <strong>Python</strong>
+          <span>Socket / Threading</span>
+        </div>
+      </div>
+      &nbsp;
+        <p><strong>Tools:</strong> Python, socket, threading</p>
+          <ul>
+            <li>Identified 15+ active hosts and exposed services</li>
+            <li>Detected open ports and exposed services across devices</li>
+            <li>Improved scan speed by ~40% using multithreading</li>
+            <li>Simulated real-world reconnaissance phase of an attack</li>
+          </ul>
+          <div class="project-buttons">
+            <a href="https://a-code1819.github.io/NetworkScanner/"
+              target="_blank"
+              class="btn btn-primary">
+            <i class="fa-brands fa-github"></i> View Network Scanner</a>
+          </div>
+          <br>
+          <div class="card card-ghost p-3 mb-4">
+            <h3>Password Security Detection Tool (PWSD)</h3>
+
+            <p>
+              Developed a Python-based password security tool designed to evaluate
+              password strength and detect common vulnerabilities. The program analyzes
+              password complexity, checks for common patterns, and helps users improve
+              their password security practices.
+            </p>
+            <div class="mt-2">
+              <a href="https://a-code1819.github.io/Cybersecurity-pswd-tool/"
+                 target="_blank"
+                class="btn btn-primary">
+                <i class="fa-brands fa-github"></i> View Password Tool
+              </a>
+            </div>
+          </div>
+          <br>
+          <h3>Home Network Security Hardening</h3>
+          <p class="card-text">
+            Designed and maintained a secure home network environment by implementing 
+            modern encryption protocols, firewall configurations, firmware updates, 
+            and device access control. Conducted data exposure evaluations and 
+            applied security best practices to minimize risk.
+          </p>
+
+          <ul class="list-group list-group-flush mb-4">
+            <li class="list-group-item">Configured WPA3 encryption & disabled insecure protocols</li>
+            <li class="list-group-item">Updated router firmware and patched vulnerabilities</li>
+            <li class="list-group-item">Segmented devices where applicable</li>
+            <li class="list-group-item">Monitored connected devices and traffic</li>
+            <li class="list-group-item">Performed email/data leak exposure checks</li>
+          </ul>
+          <br>
+          <div class="card card-ghost p-3 mb-4">
+            <h3>SOC Incident Response Simulation (Case Study)</h3>
+            <p><strong>Scenario:</strong> Suspicious login activity detected on a user account.</p>
+            <ul>
+              <li>Analyzed logs to identify multiple failed login attempts from foreign IPs</li>
+              <li>Correlated timestamps to detect brute-force attack pattern</li>
+              <li>Simulated SIEM alert triage and escalation process</li>
+              <li>Recommended mitigation: account lockout policies + MFA enforcement</li>
+            </ul>
+            <p><strong>Outcome:</strong> Successfully identified attack vector and reduced risk of unauthorized access.</p>
+          </div>
+          <br>
+          <h3>Web Development Projects</h3>
+          <div id="carouselExampleIndicators" class="carousel slide card-ghost p-2 mb-3">
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+                aria-current="true" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
+          </div>
+
+          <div class="carousel-inner rounded">
+            <div class="carousel-item active">
+              <img src="./pics/surveyform.png" class="d-block w-100" alt="Screenshot of survey form project built with HTML and CSS" data-bs-toggle="modal" data-bs-target="#projectModal" data-img="./pics/surveyform.png" loading="lazy" decoding="async"/>
+            </div>
+            <div class="carousel-item">
+              <img src="./pics/tributepage.png" class="d-block w-100" alt="Screenshot of tribute page project built with HTML and CSS" data-bs-toggle="modal" data-bs-target="#projectModal" data-img="./pics/tributepage.png" loading="lazy" decoding="async"/>
+            </div>
+            <div class="carousel-item">
+              <img src="./pics/technicalpage.png" class="d-block w-100" alt="Screenshot of technical page project built with HTML and CSS" data-bs-toggle="modal" data-bs-target="#projectModal" data-img="./pics/technicalpage.png" loading="lazy" decoding="async"/>
+            </div>
+            <div class="carousel-item">
+              <img src="./pics/plp.png" class="d-block w-100" alt="Screenshot of product landing page project built with HTML and CSS" data-bs-toggle="modal" data-bs-target="#projectModal" data-img="./pics/plp.png" loading="lazy" decoding="async"/>
+            </div>
+          </div>
+
+          <button class="carousel-control-prev" aria-label="Previous project" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" aria-label="Next project" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+          <div class="d-flex justify-content-center gap-2 flex-wrap mt-2">
+            <a href="https://a-code1819.github.io/SurveyForm/" target="_blank" class="btn btn-primary" aria-label="View my Professional Feedback Survey project">Professional Feedback Survey</a>
+            <a href="https://a-code1819.github.io/TributePage/" target="_blank" class="btn btn-primary" aria-label="View my Tribute Page project">Tribute Page</a>
+            <a href="https://a-code1819.github.io/HTMLdoc/" target="_blank" class="btn btn-primary" aria-label="View my HTML Page project">HTML Page</a>
+            <a href="https://a-code1819.github.io/PLP/" target="_blank" class="btn btn-primary" aria-label="View my Product Landing Page project">Product Landing Page</a>
+          </div>
+
+        <!-- Project Modal -->
+        <div class="modal fade" id="projectModal" tabindex="-1" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content card-ghost">
+              <div class="modal-header">
+                <h5 class="modal-title">Project Preview</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body text-center">
+                <img id="modalImg" src="" alt="Project" class="img-fluid rounded" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section id="contact" class="mb-5 reveal cyber-glow">
+        <h3 id="contact-title" class="section-title h4 mb-3">Contact Me</h3>
+        <form role="form" action="https://formspree.io/f/xgedeoel" method="POST" class="card card-ghost p-3">
+          <!-- Honeypot field (hidden from users) -->
+          <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;">
+          <div class="row g-3">
+            <div class="col-md-6">
+              <div class="form-floating">
+                <input type="text" class="form-control" id="name" name="name" placeholder="Your name" required />
+                <label for="name">Name</label>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="form-floating">
+                <input type="email" 
+                class="form-control" 
+                id="email" 
+                name="_replyto" 
+                placeholder="email@example.com" required />
+                <label for="email">Email</label>
+              </div>
+            </div>
+
+            <div class="col-12">
+              <div class="form-floating">
+                <textarea class="form-control" id="message" name="message" placeholder="Write your message" required></textarea>
+                <label for="message">Message</label>
+              </div>
+            </div>
+
+            <div class="col-12 d-flex gap-2">
+              <button type="submit" class="btn btn-purple">
+                <i class="fa-regular fa-paper-plane me-1"></i> Submit
+              </button>
+            </div>
+          </div>
+        </form>
+      </section>
+    </main>
+
+    <!-- Back to top -->
+    <button type="button" id="backToTop" class="btn rounded-circle" aria-label="Back to top">
+      <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+  <footer class="border-top py-4 text-center">
+
+  <div class="footer-socials">
+
+  <a
+    href="https://github.com/a-code1819"
+    target="_blank"
+    aria-label="GitHub"
+  >
+    <i class="fa-brands fa-github"></i>
+  </a>
+
+    <a href="https://linkedin.com/in/annakwas" target="_blank">
+      <i class="fa-brands fa-linkedin"></i>
+    </a>
+
+    <a href="https://wa.me/50247832193" target="_blank">
+      <i class="fa-brands fa-whatsapp"></i>
     </a>
   </div>
-</header>
-  
-  <div class="hero-content">
-    <img src="chapintech-logo.png" class="hero-logo">
 
-    <h2 class="headline">Soporte Técnico Futurista<br>en Instalación</h2>
+  <button class="footer-email-btn">
+    <i class="fa-solid fa-envelope me-1"></i>
+    <a href="https://mail.google.com/mail/?view=cm&to=amkwas2020@gmail.com" target="_blank" class="text-decoration-none text-white">
+    amkwas2020@gmail.com
+    </a>
+  </button>
 
-    <p class="subtext">Soluciones profesionales para tus dispositivos y redes.</p>
+  <p class="footer-copy">
+    © 2021 - 2026 Anna Kwas • Cybersecurity Portfolio
+  </p>
 
-    <a href="soporte.html" class="main-btn">Solicitar Soporte</a>
-  </div>
-</section>
+</footer>
 
-<!-- 🔥 OUTSIDE HERO -->
-<div class="socials-left">
-  <a href="#" class="social-pill">f</a>
-  <a href="#" class="social-pill">●</a>
-  <a href="#" class="social-pill">◎</a>
-  <a href="#" class="social-pill">▶</a>
-</div>
 
-<script src="stars.js"></script>
-<script src="particles.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-<script src="https://cdn.tailwindcss.com"></script>
-<script>
-  tailwind.config = {
-    theme: {
-      extend: {
-        fontFamily: {
-          'orbitron': ['Orbitron', 'sans-serif'],
-          'inter': ['Inter', 'sans-serif']
-        }
+<!-- Scripts -->
+<script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Anna Kwas",
+        "jobTitle": "Cybersecurity Analyst",
+        "url": "https://a-code1819.github.io/AnnasCV/",
+        "sameAs": [
+        "https://github.com/A-Code1819",
+        "https://linkedin.com/in/annakwas"
+        ]
       }
-    }
-  }
-
-  // Efecto de hover en el botón principal
-  const mainBtn = document.querySelector('.main-btn');
-  mainBtn.addEventListener('mouseenter', () => {
-    mainBtn.classList.add('hovered');
-  });
-
-  mainBtn.addEventListener('mouseleave', () => {
-    mainBtn.classList.remove('hovered');
-  });
-
-// Scroll suave SOLO para anchors internos
-navLinks.forEach(link => {
-
-  link.addEventListener('click', (e) => {
-
-    const href = link.getAttribute('href');
-
-    // Solo aplicar smooth scroll a #sections
-    if (href.startsWith('#')) {
-
-      e.preventDefault();
-
-      const targetElement = document.querySelector(href);
-
-      if (targetElement) {
-        targetElement.scrollIntoView({
-          behavior: 'smooth'
-        });
-      }
-    }
-
-  });
-
-});
 </script>
+<script type="application/ld+json">
+      {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Anna Kwas Portfolio",
+      "url": "https://a-code1819.github.io/AnnasCV/",
+      "description": "Portfolio showcasing the skills, experience, education, and projects of Anna Kwas, a cybersecurity analyst.",
+      "keywords": "cybersecurity, analyst, portfolio, projects, experience, education" 
+}
+</script>
+<script src="script.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" 
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" 
+    crossorigin="anonymous">
+</script>
+<div class="cursor-glow"></div>
 </body>
 </html>
