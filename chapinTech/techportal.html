@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Portal Técnico | ChapinTech</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="techportal.css">
+</head>
+
+<body>
+
+<div class="bg-grid"></div>
+<div class="bg-glow"></div>
+
+<!-- HEADER -->
+<header>
+
+  <div>
+    <h1>Portal Técnico</h1>
+
+    <p class="portal-subtitle">
+      Sistema de gestión operativa • ChapinTech
+    </p>
+  </div>
+
+  <div class="live-indicator">
+    <span class="live-dot"></span>
+    Sistema Activo
+  </div>
+
+</header>
+
+<!-- MAIN -->
+<main>
+
+<!-- =========================================
+AVAILABLE CASES
+========================================= -->
+
+<section class="dashboard-section">
+
+  <div class="section-header">
+
+    <div>
+      <h2>Casos Disponibles</h2>
+
+      <p>
+        Casos abiertos esperando asignación técnica.
+      </p>
+    </div>
+
+    <div class="queue-counter">
+      6 Casos
+    </div>
+
+  </div>
+
+  <div class="open-cases">
+
+    <div class="case-card urgent-card">
+
+      <div class="card-top">
+
+        <div class="case-info">
+          <h3>CT-1024</h3>
+          <p>Carlos Méndez</p>
+          <span>Zona 14</span>
+        </div>
+
+        <div class="priority alta">
+          Alta
+        </div>
+
+      </div>
+
+      <div class="case-details">
+
+        <p>
+          <strong>Descripción:</strong>
+          El cliente reporta que su computadora no enciende.
+        </p>
+
+        <p>
+          <strong>Fecha:</strong>
+          2026-06-15
+        </p>
+
+      </div>
+
+      <div class="case-status status-open">
+        Abierto
+      </div>
+
+      <button class="assign-btn">
+        Asignarme
+      </button>
+
+    </div>
+
+    <div class="case-card">
+
+      <div class="card-top">
+
+        <div class="case-info">
+          <h3>CT-1025</h3>
+          <p>María López</p>
+          <span>Zona 10</span>
+        </div>
+
+        <div class="priority media">
+          Media
+        </div>
+
+      </div>
+
+      <div class="case-details">
+
+        <p>
+          <strong>Descripción:</strong>
+          La impresora no responde.
+        </p>
+
+        <p>
+          <strong>Fecha:</strong>
+          2026-06-16
+        </p>
+
+      </div>
+
+      <div class="case-status status-route">
+        En Camino
+      </div>
+
+      <button class="assign-btn">
+        Asignarme
+      </button>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- =========================================
+MY ACTIVE CASES
+========================================= -->
+
+<section class="dashboard-section">
+
+  <div class="section-header">
+
+    <div>
+      <h2>Mis Casos Activos</h2>
+
+      <p>
+        Casos actualmente asignados al técnico.
+      </p>
+    </div>
+
+    <div class="queue-counter">
+      3 Activos
+    </div>
+
+  </div>
+
+  <div class="active-cases">
+
+    <div class="case-card assigned-card">
+
+      <div class="card-top">
+
+        <div class="case-info">
+          <h3>CT-1031</h3>
+          <p>NovaTech</p>
+          <span>Zona 15</span>
+        </div>
+
+        <div class="priority alta">
+          Alta
+        </div>
+
+      </div>
+
+      <div class="case-details">
+
+        <p>
+          <strong>Descripción:</strong>
+          Servidor principal sin conexión.
+        </p>
+
+        <p>
+          <strong>Estado:</strong>
+          En Proceso
+        </p>
+
+      </div>
+
+      <div class="case-actions">
+
+        <button class="status-btn">
+          Actualizar Estado
+        </button>
+
+        <button class="complete-btn">
+          Resolver Caso
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- =========================================
+COMPLETED CASES
+========================================= -->
+
+<section class="dashboard-section">
+
+  <div class="section-header">
+
+    <div>
+      <h2>Casos Completados</h2>
+
+      <p>
+        Historial de incidencias finalizadas.
+      </p>
+    </div>
+
+    <div class="queue-counter">
+      128 Resueltos
+    </div>
+
+  </div>
+
+  <div class="completed-table">
+
+    <table>
+
+      <thead>
+
+        <tr>
+          <th>ID</th>
+          <th>Cliente</th>
+          <th>Estado</th>
+          <th>Tiempo</th>
+          <th>Fecha</th>
+        </tr>
+
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <td>CT-0988</td>
+          <td>Grupo Maya</td>
+          <td>Resuelto</td>
+          <td>42 min</td>
+          <td>2026-06-20</td>
+        </tr>
+
+        <tr>
+          <td>CT-0982</td>
+          <td>Pixel Studio</td>
+          <td>Cerrado</td>
+          <td>1h 12m</td>
+          <td>2026-06-19</td>
+        </tr>
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+</section>
+
+<!-- =========================================
+SLA METRICS
+========================================= -->
+
+<section class="dashboard-section">
+
+  <div class="section-header">
+
+    <div>
+      <h2>Métricas SLA</h2>
+
+      <p>
+        Rendimiento operativo y tiempos de respuesta.
+      </p>
+    </div>
+
+  </div>
+
+  <div class="metrics-grid">
+
+    <div class="metric-card">
+      <h3>Tiempo Promedio</h3>
+      <span>18m</span>
+    </div>
+
+    <div class="metric-card">
+      <h3>SLA Cumplido</h3>
+      <span>97%</span>
+    </div>
+
+    <div class="metric-card">
+      <h3>Urgencias</h3>
+      <span>4</span>
+    </div>
+
+    <div class="metric-card">
+      <h3>Resolución</h3>
+      <span>1.4h</span>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- =========================================
+TECHNICIAN PERFORMANCE
+========================================= -->
+
+<section class="dashboard-section">
+
+  <div class="section-header">
+
+    <div>
+      <h2>Rendimiento Técnico</h2>
+
+      <p>
+        Estadísticas operativas del técnico conectado.
+      </p>
+    </div>
+
+  </div>
+
+  <div class="performance-grid">
+
+    <div class="performance-card">
+      <h3>Casos Resueltos</h3>
+      <span>84</span>
+    </div>
+
+    <div class="performance-card">
+      <h3>Calificación</h3>
+      <span>4.9★</span>
+    </div>
+
+    <div class="performance-card">
+      <h3>Eficiencia</h3>
+      <span>94%</span>
+    </div>
+
+    <div class="performance-card">
+      <h3>Tiempo Activo</h3>
+      <span>7h</span>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- =========================================
+TIMELINE
+========================================= -->
+
+<section class="dashboard-section">
+
+  <div class="section-header">
+
+    <div>
+      <h2>Timeline de Incidentes</h2>
+
+      <p>
+        Actividad reciente del sistema técnico.
+      </p>
+    </div>
+
+  </div>
+
+  <div class="timeline">
+
+    <div class="timeline-item">
+      <span class="timeline-time">16:42</span>
+
+      <p>
+        Carlos Méndez asignó el caso CT-1024
+      </p>
+    </div>
+
+    <div class="timeline-item">
+      <span class="timeline-time">16:55</span>
+
+      <p>
+        Caso CT-1028 marcado como urgente
+      </p>
+    </div>
+
+    <div class="timeline-item">
+      <span class="timeline-time">17:10</span>
+
+      <p>
+        Laura Martínez resolvió CT-1019
+      </p>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- FOOTER -->
+<footer>
+  © 2026 ChapinTech • Sistema Operativo Técnico
+</footer>
+
+<!-- SCRIPTS -->
+<script src="https://cdn.jsdelivr.net/npm/react@18/umd/react.production.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/react-dom@18/umd/react-dom.production.min.js"></script>
+<script src="particles.js"></script>
+<script src="src/techportal.js"></script>
+<script src="main.jsx"></script>
+</body>
+</html>

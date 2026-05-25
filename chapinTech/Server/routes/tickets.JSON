@@ -1,0 +1,187 @@
+{
+  "tickets": [
+
+    {
+      "ticket_id": "CT-1024",
+      "cliente": {
+        "nombre": "Carlos Méndez",
+        "telefono": "+502 4123-8899",
+        "correo": "carlosm@example.com"
+      },
+
+      "servicio": "Reparación de Laptop",
+
+      "estado": {
+        "codigo": "IN_DIAGNOSIS",
+        "label": "En Diagnóstico",
+        "step": 5
+      },
+
+      "tecnico": {
+        "nombre": "Anna",
+        "telefono": "+502 5555-1111"
+      },
+
+      "prioridad": "Alta",
+
+      "fecha_creacion": "2026-05-10T09:30:00",
+
+      "ultima_actualizacion": "2026-05-10T12:42:00",
+
+      "timeline": [
+        {
+          "status": "CREATED",
+          "label": "Ticket Creado",
+          "time": "09:30 AM"
+        },
+
+        {
+          "status": "ASSIGNED",
+          "label": "Asignado a Técnico",
+          "time": "10:00 AM"
+        },
+
+        {
+          "status": "ON_SITE",
+          "label": "Técnico en Sitio",
+          "time": "11:10 AM"
+        },
+
+        {
+          "status": "IN_DIAGNOSIS",
+          "label": "En Diagnóstico",
+          "time": "12:42 PM"
+        }
+      ],
+
+      "descripcion":
+        "La laptop presenta sobrecalentamiento y apagones repentinos.",
+
+      "notas_tecnicas":
+        "Se detectó acumulación excesiva de polvo y pasta térmica seca."
+    },
+
+    {
+      "ticket_id": "CT-2048",
+
+      "cliente": {
+        "nombre": "María López",
+        "telefono": "+502 4888-2299",
+        "correo": "maria.lopez@example.com"
+      },
+
+      "servicio": "Instalación de Red",
+
+      "estado": {
+        "codigo": "ON_THE_WAY",
+        "label": "Técnico en Ruta",
+        "step": 3
+      },
+
+      "tecnico": {
+        "nombre": "Kevin",
+        "telefono": "+502 5555-2222"
+      },
+
+      "prioridad": "Media",
+
+      "fecha_creacion": "2026-05-11T08:10:00",
+
+      "ultima_actualizacion": "2026-05-11T10:15:00",
+
+      "timeline": [
+        {
+          "status": "CREATED",
+          "label": "Ticket Creado",
+          "time": "08:10 AM"
+        },
+
+        {
+          "status": "ASSIGNED",
+          "label": "Asignado a Técnico",
+          "time": "09:00 AM"
+        },
+
+        {
+          "status": "ON_THE_WAY",
+          "label": "Técnico en Ruta",
+          "time": "10:15 AM"
+        }
+      ],
+
+      "descripcion":
+        "Cliente solicita instalación de red para oficina pequeña.",
+
+      "notas_tecnicas":
+        "Pendiente evaluación del cableado existente."
+    },
+
+    {
+      "ticket_id": "CT-4096",
+
+      "cliente": {
+        "nombre": "Luis Pérez",
+        "telefono": "+502 4999-1100",
+        "correo": "luisp@example.com"
+      },
+
+      "servicio": "Mantenimiento de PC",
+
+      "estado": {
+        "codigo": "COMPLETED",
+        "label": "Servicio Finalizado",
+        "step": 6
+      },
+
+      "tecnico": {
+        "nombre": "Andrea",
+        "telefono": "+502 5555-3333"
+      },
+
+      "prioridad": "Baja",
+
+      "fecha_creacion": "2026-05-09T02:20:00",
+
+      "ultima_actualizacion": "2026-05-09T05:40:00",
+
+      "timeline": [
+        {
+          "status": "CREATED",
+          "label": "Ticket Creado",
+          "time": "02:20 PM"
+        },
+
+        {
+          "status": "ASSIGNED",
+          "label": "Asignado a Técnico",
+          "time": "02:45 PM"
+        },
+
+        {
+          "status": "IN_DIAGNOSIS",
+          "label": "En Diagnóstico",
+          "time": "03:20 PM"
+        },
+
+        {
+          "status": "DIAGNOSIS_COMPLETED",
+          "label": "Diagnóstico Finalizado",
+          "time": "04:10 PM"
+        },
+
+        {
+          "status": "COMPLETED",
+          "label": "Servicio Finalizado",
+          "time": "05:40 PM"
+        }
+      ],
+
+      "descripcion":
+        "Mantenimiento preventivo completo de computadora de escritorio.",
+
+      "notas_tecnicas":
+        "Equipo limpiado y optimizado correctamente."
+    }
+
+  ]
+}

@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+  <meta charset="UTF-8" />
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+
+  <title>
+    ChapinTech | Admin Portal
+  </title>
+
+  <!-- GOOGLE FONTS -->
+
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800&family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
+  <!-- ADMIN CSS -->
+  <link
+    rel="stylesheet"
+    href="admin.css"
+  >
+</head>
+
+<body>
+
+<!-- ========================================
+BACKGROUND
+======================================== -->
+
+<div class="bg-grid"></div>
+<div class="bg-glow"></div>
+
+<!-- ========================================
+ADMIN PAGE
+======================================== -->
+
+<div class="admin-page">
+
+  <!-- ========================================
+  SIDEBAR
+  ======================================== -->
+
+  <aside class="sidebar">
+    <!-- BRAND -->
+    <div class="brand">
+      <img
+        src="chapintech-logo.png"
+        alt="ChapinTech Logo"
+      >
+
+      <div>
+        <h1>
+          ChapinTech
+        </h1>
+
+        <p>
+          Control Center
+        </p>
+      </div>
+    </div>
+
+    <!-- NAV -->
+
+    <nav class="sidebar-nav">
+      <a href="#" class="active-link">
+        Dashboard
+      </a>
+
+      <a href="#">
+        Tickets
+      </a>
+
+      <a href="#">
+        Técnicos
+      </a>
+
+      <a href="#">
+        Analytics
+      </a>
+
+      <a href="#">
+        SLA
+      </a>
+
+      <a href="#">
+        Configuración
+      </a>
+    </nav>
+
+    <!-- SYSTEM STATUS -->
+    <div class="system-status">
+      <span class="status-dot"></span>
+      Sistema Operativo Técnico
+    </div>
+
+  </aside>
+
+  <!-- ========================================
+  MAIN CONTENT
+  ======================================== -->
+
+  <main class="admin-main">
+
+    <!-- ========================================
+    TOPBAR
+    ======================================== -->
+
+    <div class="topbar">
+
+      <div>
+
+        <h2>
+          Panel de Administración
+        </h2>
+
+        <p>
+          Supervisión de tickets, técnicos y operaciones.
+        </p>
+
+      </div>
+
+      <div class="topbar-actions">
+
+        <!-- SEARCH -->
+
+        <div class="search-box">
+
+          <input type="text" class="search-input"
+                 placeholder="Buscar ticket..."
+          >
+          <button class="search-btn"> Buscar </button>
+        </div>
+
+        <!-- ALERTS -->
+
+        <button class="notification-btn">
+
+          🔔
+
+          <span class="notification-badge">
+            3
+          </span>
+
+        </button>
+
+      </div>
+
+    </div>
+
+    <!-- ========================================
+    STATS
+    ======================================== -->
+
+    <section class="stats-grid">
+
+      <!-- CARD -->
+
+      <div class="stat-card">
+
+        <div class="stat-top">
+
+          <span>
+            Tickets Activos
+          </span>
+
+          <div class="stat-icon cyan-glow">
+            ⚡
+          </div>
+
+        </div>
+
+        <h3>
+          24
+        </h3>
+
+        <p>
+          +12% hoy
+        </p>
+
+      </div>
+
+      <!-- CARD -->
+
+      <div class="stat-card">
+
+        <div class="stat-top">
+
+          <span>
+            En Diagnóstico
+          </span>
+
+          <div class="stat-icon violet-glow">
+            🛠
+          </div>
+
+        </div>
+
+        <h3>
+          8
+        </h3>
+
+        <p>
+          3 urgentes
+        </p>
+
+      </div>
+
+      <!-- CARD -->
+
+      <div class="stat-card">
+
+        <div class="stat-top">
+
+          <span>
+            Técnicos Activos
+          </span>
+
+          <div class="stat-icon green-glow">
+            👨‍💻
+          </div>
+
+        </div>
+
+        <h3>
+          5
+        </h3>
+
+        <p>
+          100% operativos
+        </p>
+
+      </div>
+
+      <!-- CARD -->
+
+      <div class="stat-card">
+
+        <div class="stat-top">
+
+          <span>
+            Completados Hoy
+          </span>
+
+          <div class="stat-icon blue-glow">
+            ✔
+          </div>
+
+        </div>
+
+        <h3>
+          12
+        </h3>
+
+        <p>
+          SLA 98%
+        </p>
+
+      </div>
+
+    </section>
+
+    <!-- ========================================
+    LIVE TICKETS SECTION
+    ======================================== -->
+
+    <section class="tickets-section">
+
+      <!-- SECTION TOP -->
+
+      <div class="tickets-header">
+        <div>
+          <h3>
+            Tickets en Tiempo Real
+          </h3>
+
+          <p>
+            Monitoreo y actualización de tickets activos.
+          </p>
+        </div>
+
+        <div class="live-status">
+          <span class="live-pulse"></span>
+          Actualización en vivo
+        </div>
+      </div>
+
+      <!-- ========================================
+      TABLE HEADER
+      ======================================== -->
+
+      <section class="ticket-table">
+
+        <div class="table-header">
+
+          <span>Ticket</span>
+          <span>Cliente</span>
+          <span>Estado</span>
+          <span>Técnico</span>
+          <span>Prioridad</span>
+          <span>Actualizar</span>
+
+        </div>
+
+        <div class="tickets-container">
+                  <!-- ========================================
+        ROW
+        ======================================== -->
+
+        <div class="ticket-row urgent-row">
+
+          <span class="ticket-id">
+            CT-1024
+          </span>
+
+          <span>
+            Carlos Méndez
+          </span>
+
+          <span class="status diagnosis">
+            En Diagnóstico
+          </span>
+
+          <span>
+            Anna
+          </span>
+
+          <span class="priority high">
+            Alta
+          </span>
+
+          <span>
+            Zona 14
+          </span>
+
+          <select>
+
+            <option>
+              Creado
+            </option>
+
+            <option>
+              Asignado
+            </option>
+
+            <option selected>
+              En Diagnóstico
+            </option>
+
+            <option>
+              Reparando
+            </option>
+
+            <option>
+              Finalizado
+            </option>
+
+          </select>
+
+        </div>
+
+        <!-- ========================================
+        ROW
+        ======================================== -->
+
+        <div class="ticket-row">
+
+          <span class="ticket-id">
+            CT-2048
+          </span>
+
+          <span>
+            María López
+          </span>
+
+          <span class="status route">
+            En Ruta
+          </span>
+
+          <span>
+            Kevin
+          </span>
+
+          <span class="priority medium">
+            Media
+          </span>
+
+          <span>
+            Zona 10
+          </span>
+
+          <select>
+
+            <option>
+              Creado
+            </option>
+
+            <option selected>
+              En Ruta
+            </option>
+
+            <option>
+              En Sitio
+            </option>
+
+            <option>
+              Diagnóstico
+            </option>
+
+            <option>
+              Finalizado
+            </option>
+
+          </select>
+
+        </div>
+
+        <!-- ========================================
+        ROW
+        ======================================== -->
+
+        <div class="ticket-row completed-row">
+
+          <span class="ticket-id">
+            CT-4096
+          </span>
+
+          <span>
+            Luis Pérez
+          </span>
+
+          <span class="status completed">
+            Finalizado
+          </span>
+
+          <span>
+            Andrea
+          </span>
+
+          <span class="priority low">
+            Baja
+          </span>
+
+          <span>
+            Zona 5
+          </span>
+
+          <select>
+
+            <option>
+              Creado
+            </option>
+
+            <option>
+              Diagnóstico
+            </option>
+
+            <option selected>
+              Finalizado
+            </option>
+
+          </select>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ========================================
+    OPEN CASES
+    ======================================== -->
+
+    <section class="admin-cases-section">
+
+      <div class="tickets-header">
+
+        <div>
+
+          <h3>
+            Casos Esperando Asignación
+          </h3>
+
+          <p>
+            Casos disponibles para despacho técnico.
+          </p>
+
+        </div>
+
+      </div>
+
+      <div class="open-cases-grid">
+
+        <!-- CARD -->
+
+        <div class="open-case-card">
+
+          <div class="open-case-top">
+
+            <div>
+
+              <h4>
+                CT-5012
+              </h4>
+
+              <p>
+                Ricardo Sánchez
+              </p>
+
+            </div>
+
+            <span class="priority high">
+              Alta
+            </span>
+
+          </div>
+
+          <p class="case-description">
+
+            El cliente reporta falla total de encendido.
+
+          </p>
+
+          <div class="open-case-footer">
+
+            <span>
+              Zona 9
+            </span>
+
+            <button>
+              Asignar Técnico
+            </button>
+
+          </div>
+
+        </div>
+
+        <!-- CARD -->
+
+        <div class="open-case-card">
+
+          <div class="open-case-top">
+
+            <div>
+
+              <h4>
+                CT-5013
+              </h4>
+
+              <p>
+                Laura Martínez
+              </p>
+
+            </div>
+
+            <span class="priority medium">
+              Media
+            </span>
+
+          </div>
+
+          <p class="case-description">
+
+            Problema intermitente de conectividad WiFi.
+
+          </p>
+
+          <div class="open-case-footer">
+
+            <span>
+              Zona 12
+            </span>
+
+            <button>
+              Asignar Técnico
+            </button>
+
+          </div>
+        </div>
+      </div>
+    </div>
+</section>
+</main>
+</div>
+
+<!-- ========================================
+SCRIPTS
+======================================== -->
+
+<script src="src/admin.jsx"></script>
+<script src="particles.js"></script>
+
+</body>
+</html>
