@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ChapinTech | Soporte Técnico Futurista</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="chapintech-logo.png" />
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<section class="hero">
+
+  <canvas id="stars"></canvas>
+  <canvas id="particles"></canvas>
+
+  <!-- BACKGROUND SYSTEM (THIS MAKES IT LOOK REAL) -->
+  <div class="bg-space"></div>
+  <div class="bg-vignette"></div>
+  <div class="hud-frame"></div>
+  <div class="top-light"></div>
+  <div class="hud"></div>
+  <div class="top-glow-line"></div>
+  <div class="hero-focus"></div>
+
+  <div class="energy-core"></div>
+
+<header class="nav">
+
+  <div class="logo">
+    <img src="chapintech-logo.png" alt="ChapinTech logo">
+    <span class="logo-text">ChapinTech</span>
+  </div>
+
+  <nav class="nav-links">
+
+    <a href="#" class="nav-link">Inicio</a>
+    <span class="divider"></span>
+
+    <a href="#" class="nav-link">Servicios</a>
+    <span class="divider"></span>
+
+    <a href="soporte.html" class="nav-link">Soporte</a>
+    <span class="divider"></span>
+
+    <a href="#" class="nav-link">Nosotros</a>
+    <span class="divider"></span>
+
+    <a href="#" class="nav-link">Contacto</a>
+
+  </nav>
+
+  <div class="nav-actions">
+    <span class="contact-phone">+502 1234-5678</span>
+
+    <a href="#" class="cta-top">
+      Contáctanos
+    </a>
+  </div>
+</header>
+  
+  <div class="hero-content">
+    <img src="chapintech-logo.png" class="hero-logo">
+
+    <h2 class="headline">Soporte Técnico Futurista<br>en Instalación</h2>
+
+    <p class="subtext">Soluciones profesionales para tus dispositivos y redes.</p>
+
+    <a href="soporte.html" class="main-btn">Solicitar Soporte</a>
+  </div>
+</section>
+
+<!-- 🔥 OUTSIDE HERO -->
+<div class="socials-left">
+  <a href="#" class="social-pill">f</a>
+  <a href="#" class="social-pill">●</a>
+  <a href="#" class="social-pill">◎</a>
+  <a href="#" class="social-pill">▶</a>
+</div>
+
+<script src="stars.js"></script>
+<script src="particles.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          'orbitron': ['Orbitron', 'sans-serif'],
+          'inter': ['Inter', 'sans-serif']
+        }
+      }
+    }
+  }
+
+  // Efecto de hover en el botón principal
+  const mainBtn = document.querySelector('.main-btn');
+  mainBtn.addEventListener('mouseenter', () => {
+    mainBtn.classList.add('hovered');
+  });
+
+  mainBtn.addEventListener('mouseleave', () => {
+    mainBtn.classList.remove('hovered');
+  });
+
+// Scroll suave SOLO para anchors internos
+navLinks.forEach(link => {
+
+  link.addEventListener('click', (e) => {
+
+    const href = link.getAttribute('href');
+
+    // Solo aplicar smooth scroll a #sections
+    if (href.startsWith('#')) {
+
+      e.preventDefault();
+
+      const targetElement = document.querySelector(href);
+
+      if (targetElement) {
+        targetElement.scrollIntoView({
+          behavior: 'smooth'
+        });
+      }
+    }
+  });
+});
+
+// Efecto de parpadeo en el logo al cargar la página
+window.addEventListener('load', () => {
+  const heroLogo = document.querySelector('.hero-logo');
+  heroLogo.classList.add('blink');
+  setTimeout(() => {
+    heroLogo.classList.remove('blink');
+  }, 2000);
+});
+
+// Efecto de brillo en el botón al hacer clic
+mainBtn.addEventListener('click', () => {
+  mainBtn.classList.add('clicked');
+  setTimeout(() => {
+    mainBtn.classList.remove('clicked');
+  }, 300);
+});
+
+// Efecto de parpadeo en el número de teléfono al cargar la página
+window.addEventListener('load', () => {
+  const contactPhone = document.querySelector('.contact-phone');
+  contactPhone.classList.add('blink-slow');
+  setTimeout(() => {
+    contactPhone.classList.remove('blink-slow');
+  }, 4000);
+});
+
+</script>
+</body>
+</html>
