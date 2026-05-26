@@ -91,17 +91,12 @@
         <div class="client-actions" data-client-content="search">
           <form class="support-card ticket-search-form">
             <h3>Buscar ticket</h3>
-            <p>El cliente consulta el estado usando codigo y correo o telefono.</p>
+            <p>Codigo de prueba: <strong>CT-1024</strong></p>
 
             <div class="search-fields">
               <label for="ticketCode">
                 Codigo de ticket
                 <input id="ticketCode" name="ticketCode" type="text" placeholder="CT-1024" autocomplete="off">
-              </label>
-
-              <label for="ticketContact">
-                Correo o telefono
-                <input id="ticketContact" name="ticketContact" type="text" placeholder="cliente@email.com">
               </label>
             </div>
 
@@ -194,40 +189,35 @@
         <div class="admin-board">
           <div class="admin-toolbar">
             <h3>Cola de tickets</h3>
-            <div class="admin-filters">
-              <button type="button" class="active">Todos</button>
-              <button type="button">Alta</button>
-              <button type="button">Sin tecnico</button>
-            </div>
           </div>
 
           <div class="ticket-list">
-            <article class="admin-ticket-row urgent">
+            <article class="admin-ticket-row urgent" data-steps="Recibido,Asignado,Tecnico en Ruta,Diagnostico,En Reparacion">
               <div>
                 <strong>CT-1024</strong>
                 <p>Carlos Mendez - Computadora no enciende</p>
               </div>
-              <span class="priority high">Alta</span>
+              <div class="admin-ticket-progress"></div>
               <span>Zona 14</span>
               <button type="button">Asignar</button>
             </article>
 
-            <article class="admin-ticket-row">
+            <article class="admin-ticket-row" data-steps="Recibido,Asignado,Tecnico en Ruta">
               <div>
                 <strong>CT-1025</strong>
                 <p>Maria Lopez - Impresora no responde</p>
               </div>
-              <span class="priority medium">Media</span>
+              <div class="admin-ticket-progress"></div>
               <span>Zona 10</span>
               <button type="button">Asignar</button>
             </article>
 
-            <article class="admin-ticket-row">
+            <article class="admin-ticket-row" data-steps="Recibido">
               <div>
                 <strong>CT-1028</strong>
                 <p>Grupo Maya - Fallo de red interna</p>
               </div>
-              <span class="priority medium">Media</span>
+              <div class="admin-ticket-progress"></div>
               <span>Zona 11</span>
               <button type="button">Asignar</button>
             </article>

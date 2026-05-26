@@ -418,32 +418,83 @@ body {
   overflow-wrap: anywhere;
 }
 
-.ticket-timeline {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-  gap: 10px;
-  margin-top: 18px;
+.create-ticket-form {
+  margin-top: 20px;
 }
 
-.timeline-step {
+.status-progress {
+  width: 100%;
+  margin-top: 22px;
+  padding: 16px 0 4px;
+}
+
+.status-track {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  align-items: start;
+  gap: 8px;
+  padding-top: 16px;
+}
+
+.status-track::before,
+.status-fill {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 8px;
+  border-radius: 999px;
+}
+
+.status-track::before {
+  background: rgba(99,230,255,.10);
+  border: 1px solid rgba(99,230,255,.14);
+}
+
+.status-fill {
+  right: auto;
+  max-width: 100%;
+  background: linear-gradient(90deg, #63e6ff, #3ba7ff);
+  box-shadow:
+    0 0 18px rgba(99,230,255,.58),
+    inset 0 0 8px rgba(255,255,255,.18);
+  transition: width .25s ease;
+}
+
+.status-point {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  justify-items: center;
   min-width: 0;
-  min-height: 78px;
-  padding: 12px;
-  border-radius: 16px;
-  color: rgba(255,255,255,.58);
-  background: rgba(255,255,255,.04);
-  font-size: .82rem;
+  color: rgba(255,255,255,.46);
+  text-align: center;
+  font-size: .76rem;
   font-weight: 800;
+}
+
+.status-point span {
+  display: none;
+}
+
+.status-point p {
+  margin: 0;
   overflow-wrap: anywhere;
 }
 
-.timeline-step.done {
+.status-point.done {
   color: var(--cyan);
-  background: rgba(99,230,255,.10);
 }
 
-.create-ticket-form {
-  margin-top: 20px;
+.status-point.done span {
+  background: transparent;
+  box-shadow: none;
+}
+
+.status-point.current span {
+  animation: none;
 }
 
 .form-grid {
@@ -494,7 +545,7 @@ body {
 
 .admin-ticket-row {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(74px, auto) minmax(70px, auto) minmax(96px, auto);
+  grid-template-columns: minmax(180px, 1fr) minmax(220px, 1.2fr) minmax(70px, auto) minmax(96px, auto);
   align-items: center;
   gap: 16px;
   padding: 16px;
@@ -502,6 +553,34 @@ body {
   border-radius: 18px;
   background: rgba(2,6,23,.35);
   min-width: 0;
+}
+
+.admin-ticket-progress {
+  min-width: 0;
+}
+
+.status-progress.compact {
+  margin: 0;
+  padding: 8px 0 0;
+}
+
+.status-progress.compact .status-track::before,
+.status-progress.compact .status-fill {
+  top: 0;
+  height: 6px;
+}
+
+.status-progress.compact .status-track {
+  gap: 4px;
+  padding-top: 12px;
+}
+
+.status-progress.compact .status-point {
+  font-size: .58rem;
+}
+
+.status-progress.compact .status-point span {
+  display: none;
 }
 
 .admin-ticket-row.urgent {
@@ -578,10 +657,10 @@ body {
   }
 
   .admin-ticket-row {
-    grid-template-columns: minmax(0, 1fr) minmax(82px, auto);
+    grid-template-columns: minmax(0, 1fr);
   }
 
-  .admin-ticket-row span:nth-of-type(2),
+  .admin-ticket-progress,
   .admin-ticket-row button {
     grid-column: 1 / -1;
   }
@@ -670,9 +749,12 @@ body {
 
   .search-fields,
   .client-toggle-grid,
-  .form-grid,
-  .admin-stats-grid {
+  .form-grid {
     grid-template-columns: 1fr;
+  }
+
+  .admin-stats-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .admin-ticket-row {
@@ -681,6 +763,96 @@ body {
 
   .admin-ticket-row button {
     width: 100%;
+  }
+
+  .status-progress.compact,
+  .status-progress.client {
+    padding: 4px 0;
+  }
+
+  .status-progress.compact .status-track,
+  .status-progress.client .status-track {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    padding-top: 0;
+    padding-left: 14px;
+  }
+
+  .status-progress.compact .status-track::before,
+  .status-progress.compact .status-fill,
+  .status-progress.client .status-track::before,
+  .status-progress.client .status-fill {
+    display: block;
+    top: 7px;
+    left: 7px;
+    right: auto;
+    width: 2px !important;
+    border-radius: 999px;
+  }
+
+  .status-progress.compact .status-track::before,
+  .status-progress.client .status-track::before {
+    bottom: 7px;
+    height: auto;
+  }
+
+  .status-progress.compact .status-fill,
+  .status-progress.client .status-fill {
+    height: var(--progress);
+    max-height: calc(100% - 14px);
+    max-width: none;
+    box-shadow: 0 0 10px rgba(99,230,255,.68);
+  }
+
+  .status-progress.compact .status-point,
+  .status-progress.client .status-point {
+    position: relative;
+    grid-template-columns: 16px minmax(0, 1fr);
+    column-gap: 6px;
+    justify-items: start;
+    align-items: center;
+    text-align: left;
+    font-size: .72rem;
+  }
+
+  .status-progress.compact .status-point span,
+  .status-progress.client .status-point span {
+    display: block;
+    background: rgba(255,255,255,.22);
+    box-shadow: none;
+  }
+
+  .status-progress.compact .status-point.done span,
+  .status-progress.client .status-point.done span {
+    background: var(--cyan);
+    box-shadow: 0 0 12px rgba(99,230,255,.72);
+  }
+
+  .status-progress.compact .status-point.current span,
+  .status-progress.client .status-point.current span {
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .status-progress.compact .status-point.current::before,
+  .status-progress.client .status-point.current::before {
+    content: "";
+    position: absolute;
+    left: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-left: 8px solid var(--cyan);
+    filter: drop-shadow(0 0 8px rgba(99,230,255,.9));
+  }
+
+  .status-progress.compact .status-point.current p,
+  .status-progress.client .status-point.current p {
+    padding-left: 12px;
+    color: var(--cyan);
   }
 }
 
@@ -730,13 +902,48 @@ body {
   .support-card,
   .admin-board,
   .stat-tile {
-    padding: 18px;
+    padding: 16px;
     border-radius: 20px;
   }
 
+  .admin-stats-grid {
+    gap: 12px;
+  }
+
+  .stat-tile strong {
+    font-size: 1.7rem;
+  }
+
   .ticket-meta-grid,
-  .ticket-timeline {
+  .status-track {
     grid-template-columns: 1fr;
+  }
+
+  .status-progress {
+    padding: 4px 0;
+  }
+
+  .status-track {
+    gap: 12px;
+    padding-top: 14px;
+  }
+
+  .status-track::before,
+  .status-fill {
+    display: block;
+  }
+
+  .status-point {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    text-align: center;
+  }
+
+  .status-progress.compact .status-point,
+  .status-progress.client .status-point {
+    grid-template-columns: 16px minmax(0, 1fr);
+    justify-items: start;
+    text-align: left;
   }
 
   .module-badge {

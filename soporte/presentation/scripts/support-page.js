@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const rolePanels = document.querySelectorAll('[data-role-panel]');
   const clientToggleButtons = document.querySelectorAll('.client-toggle-btn[data-client-panel]');
   const clientContents = document.querySelectorAll('[data-client-content]');
+  const statusSteps = ['Recibido', 'Asignado', 'Tecnico en Ruta', 'Diagnostico', 'En Reparacion', 'Finalizado'];
 
   const demoTickets = [
     {
@@ -14,10 +15,10 @@ document.addEventListener('DOMContentLoaded', () => {
       contact: 'carlos@email.com',
       client: 'Carlos Mendez',
       service: 'Reparacion de laptop',
-      status: 'En diagnostico',
+      status: 'En Reparacion',
       technician: 'Anna',
       priority: 'Alta',
-      steps: ['Recibido', 'Asignado', 'En camino', 'Diagnostico']
+      steps: ['Recibido', 'Asignado', 'Tecnico en Ruta', 'Diagnostico', 'En Reparacion']
     },
     {
       code: 'CT-1025',
@@ -27,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
       status: 'Tecnico en ruta',
       technician: 'Kevin',
       priority: 'Media',
-      steps: ['Recibido', 'Asignado', 'En camino']
+      steps: ['Recibido', 'Asignado', 'Tecnico en Ruta']
     }
   ];
 
@@ -66,6 +67,33 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  function renderStatusBar(activeSteps, size = 'default') {
+    const lastActiveIndex = Math.max(...activeSteps.map((step) => statusSteps.indexOf(step)));
+    const progress = lastActiveIndex <= 0
+      ? 0
+      : (lastActiveIndex / (statusSteps.length - 1)) * 100;
+    const sizeClass = size === 'compact' || size === 'client' ? size : '';
+
+    return `
+      <div class="status-progress ${sizeClass}">
+        <div class="status-track">
+          <div class="status-fill" style="width:${progress}%; --progress:${progress}%;"></div>
+          ${statusSteps.map((step, index) => {
+            const isDone = index <= lastActiveIndex ? 'done' : '';
+            const isCurrent = index === lastActiveIndex ? 'current' : '';
+
+            return `
+              <div class="status-point ${isDone} ${isCurrent}">
+                <span></span>
+                <p>${step}</p>
+              </div>
+            `;
+          }).join('')}
+        </div>
+      </div>
+    `;
+  }
+
   roleButtons.forEach((button) => {
     button.addEventListener('click', () => {
       setRoleView(button.dataset.role);
@@ -85,12 +113,10 @@ document.addEventListener('DOMContentLoaded', () => {
     event.preventDefault();
 
     const codeInput = ticketSearchForm.querySelector('#ticketCode');
-    const contactInput = ticketSearchForm.querySelector('#ticketContact');
     const code = codeInput.value.trim().toUpperCase();
-    const contact = contactInput.value.trim().toLowerCase().replace(/\s/g, '');
 
     const ticket = demoTickets.find((item) => {
-      return item.code === code && item.contact.toLowerCase().replace(/\s/g, '') === contact;
+      return item.code === code;
     });
 
     if (!ticket) {
@@ -99,7 +125,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <div class="ticket-result-error">
           <span>!</span>
           <h3>Numero incorrecto o inexistente</h3>
-          <p>No encontramos un ticket con esos datos. Verifica el codigo y el correo o telefono asociado.</p>
+          <p>No encontramos un ticket con ese codigo. Verifica el numero e intenta nuevamente.</p>
         </div>
       `;
       return;
@@ -135,13 +161,17 @@ document.addEventListener('DOMContentLoaded', () => {
           </div>
         </div>
 
-        <div class="ticket-timeline">
-          ${['Recibido', 'Asignado', 'En camino', 'Diagnostico', 'Finalizado'].map((step) => {
-            const done = ticket.steps.includes(step) ? 'done' : '';
-            return `<div class="timeline-step ${done}">${step}</div>`;
-          }).join('')}
-        </div>
+        ${renderStatusBar(ticket.steps, 'client')}
       </div>
     `;
+  });
+
+  document.querySelectorAll('.admin-ticket-row[data-steps]').forEach((row) => {
+    const activeSteps = row.dataset.steps.split(',').map((step) => step.trim());
+    const progressTarget = row.querySelector('.admin-ticket-progress');
+
+    if (progressTarget) {
+      progressTarget.innerHTML = renderStatusBar(activeSteps, 'compact');
+    }
   });
 });
