@@ -1,0 +1,617 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+:root{
+
+  --bg:#020617;
+  --card:#071427;
+
+  --cyan:#63e6ff;
+  --blue:#3b82f6;
+  --purple:#8b5cf6;
+  --green:#22c55e;
+  --red:#ef4444;
+  --yellow:#facc15;
+
+  --text:#f8fafc;
+  --muted:#94a3b8;
+
+}
+
+body{
+
+  background:var(--bg);
+  color:var(--text);
+
+  font-family:'Inter',sans-serif;
+
+  overflow-x:hidden;
+
+}
+
+/* ========================================
+SCREENS
+======================================== */
+
+.screen{
+  display:none;
+}
+
+.active-screen{
+  display:block;
+}
+
+/* ========================================
+TOPBAR
+======================================== */
+
+.topbar{
+
+  position:sticky;
+  top:0;
+
+  z-index:100;
+
+  background:#020617;
+
+  padding:20px 22px;
+
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+
+  border-bottom:
+  1px solid rgba(255,255,255,.05);
+
+}
+
+.topbar h1{
+
+  font-family:'Orbitron',sans-serif;
+
+  font-size:1.3rem;
+
+}
+
+.topbar p{
+
+  color:var(--muted);
+  margin-top:4px;
+
+}
+
+.online-status{
+
+  display:flex;
+  align-items:center;
+  gap:8px;
+
+  background:
+  rgba(34,197,94,.12);
+
+  padding:10px 14px;
+
+  border-radius:999px;
+
+  font-size:.85rem;
+
+}
+
+.dot{
+
+  width:10px;
+  height:10px;
+
+  background:#22c55e;
+
+  border-radius:50%;
+
+}
+
+/* ========================================
+QUEUE HEADER
+======================================== */
+
+.queue-header{
+
+  padding:22px;
+
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+
+}
+
+.queue-header h2{
+
+  font-size:1.5rem;
+  margin-bottom:6px;
+
+}
+
+.queue-header p{
+
+  color:var(--muted);
+
+}
+
+.queue-count{
+
+  width:54px;
+  height:54px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  border-radius:18px;
+
+  background:
+  rgba(59,130,246,.15);
+
+  color:var(--cyan);
+
+  font-weight:700;
+
+}
+
+/* ========================================
+QUEUE LIST
+======================================== */
+
+.queue-list{
+
+  display:flex;
+  flex-direction:column;
+
+  gap:20px;
+
+  padding:0 22px 120px;
+
+}
+
+/* ========================================
+TICKET CARD
+======================================== */
+
+.ticket-card{
+
+  background:var(--card);
+
+  border:
+  1px solid rgba(255,255,255,.05);
+
+  border-radius:28px;
+
+  padding:24px;
+
+  transition:.25s ease;
+
+}
+
+.ticket-card:active{
+
+  transform:scale(.98);
+
+}
+
+/* ========================================
+TOP
+======================================== */
+
+.ticket-top{
+
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+
+  margin-bottom:20px;
+
+}
+
+.ticket-top h3{
+
+  font-size:1.7rem;
+
+  margin-bottom:6px;
+
+}
+
+.client{
+
+  color:white;
+  font-weight:600;
+
+}
+
+/* ========================================
+BODY
+======================================== */
+
+.ticket-body{
+
+  display:flex;
+  flex-direction:column;
+
+  gap:12px;
+
+  margin-bottom:24px;
+
+}
+
+.ticket-body p{
+
+  color:var(--muted);
+
+  line-height:1.5;
+
+}
+
+/* ========================================
+PRIORITY
+======================================== */
+
+.priority{
+
+  width:max-content;
+
+  padding:10px 16px;
+
+  border-radius:999px;
+
+  font-weight:700;
+
+}
+
+.alta{
+
+  background:
+  rgba(239,68,68,.15);
+
+  color:#ff8f8f;
+
+}
+
+.media{
+
+  background:
+  rgba(250,204,21,.15);
+
+  color:#facc15;
+
+}
+
+.baja{
+
+  background:
+  rgba(34,197,94,.15);
+
+  color:#86efac;
+
+}
+
+/* ========================================
+BUTTONS
+======================================== */
+
+.assign-btn,
+.primary-btn,
+.secondary-btn,
+.success-btn,
+.danger-btn{
+
+  width:100%;
+  height:58px;
+
+  border:none;
+
+  border-radius:18px;
+
+  font-size:1rem;
+  font-weight:700;
+
+  color:white;
+
+  cursor:pointer;
+
+  transition:.25s ease;
+
+}
+
+button:active{
+
+  transform:scale(.98);
+
+}
+
+button:disabled{
+
+  opacity:.55;
+  cursor:not-allowed;
+
+}
+
+.assign-btn,
+.primary-btn{
+
+  background:
+  linear-gradient(
+    90deg,
+    #2563eb,
+    #3b82f6
+  );
+
+}
+
+.secondary-btn{
+
+  background:
+  linear-gradient(
+    90deg,
+    #7c3aed,
+    #8b5cf6
+  );
+
+}
+
+.success-btn{
+
+  background:
+  linear-gradient(
+    90deg,
+    #15803d,
+    #22c55e
+  );
+
+}
+
+.danger-btn{
+
+  background:
+  linear-gradient(
+    90deg,
+    #b91c1c,
+    #ef4444
+  );
+
+}
+
+/* ========================================
+ACTIVE INCIDENT
+======================================== */
+
+.sla-bar{
+
+  position:sticky;
+  top:81px;
+
+  z-index:90;
+
+  background:#071427;
+
+  padding:18px 22px;
+
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+
+  border-bottom:
+  1px solid rgba(255,255,255,.05);
+
+}
+
+.sla-bar strong{
+
+  font-size:1.2rem;
+
+  color:var(--cyan);
+
+}
+
+.active-ticket{
+
+  padding:22px 22px 120px;
+
+}
+
+.active-ticket h2{
+
+  font-size:2rem;
+
+  margin:22px 0;
+
+}
+
+/* ========================================
+STATUS
+======================================== */
+
+.status{
+
+  display:inline-flex;
+
+  padding:10px 16px;
+
+  border-radius:999px;
+
+  font-weight:700;
+
+  margin-bottom:28px;
+
+}
+
+.route{
+
+  background:
+  rgba(59,130,246,.15);
+
+  color:#8fc2ff;
+
+}
+
+.onsite{
+
+  background:
+  rgba(139,92,246,.15);
+
+  color:#c4b5fd;
+
+}
+
+.repair{
+
+  background:
+  rgba(250,204,21,.15);
+
+  color:#facc15;
+
+}
+
+.resolved{
+
+  background:
+  rgba(34,197,94,.15);
+
+  color:#86efac;
+
+}
+
+.escalated{
+
+  background:
+  rgba(239,68,68,.15);
+
+  color:#ff8f8f;
+
+}
+
+/* ========================================
+INFO
+======================================== */
+
+.info-block{
+
+  margin-bottom:24px;
+
+}
+
+.info-block label{
+
+  display:block;
+
+  color:var(--muted);
+
+  margin-bottom:8px;
+
+  font-size:.9rem;
+
+}
+
+.info-block p{
+
+  line-height:1.6;
+
+}
+
+/* ========================================
+STACK
+======================================== */
+
+.action-stack{
+
+  display:flex;
+  flex-direction:column;
+
+  gap:14px;
+
+  margin-top:30px;
+
+}
+
+/* ========================================
+DOCUMENTATION
+======================================== */
+
+.documentation{
+
+  margin-top:30px;
+
+}
+
+.documentation h3{
+
+  margin-bottom:18px;
+
+}
+
+textarea{
+
+  width:100%;
+
+  min-height:120px;
+
+  background:#020617;
+
+  border:
+  1px solid rgba(255,255,255,.08);
+
+  border-radius:18px;
+
+  padding:16px;
+
+  color:white;
+
+  margin-bottom:16px;
+
+  resize:none;
+
+  font-family:'Inter',sans-serif;
+
+}
+
+/* ========================================
+INVOICE
+======================================== */
+
+.invoice-box{
+
+  margin-top:26px;
+
+  background:
+  rgba(34,197,94,.12);
+
+  border:
+  1px solid rgba(34,197,94,.15);
+
+  border-radius:20px;
+
+  padding:20px;
+
+}
+
+/* ========================================
+UTILS
+======================================== */
+
+.hidden{
+  display:none;
+}
+
+/* ========================================
+TABLET
+======================================== */
+
+@media(min-width:768px){
+
+  .queue-list,
+  .active-ticket{
+
+    width:700px;
+    margin:auto;
+
+  }
+
+}

@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ChapinTech Mobile Portal</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="mobile-tech.css">
+
+</head>
+
+<body>
+
+<header class="topbar">
+
+  <div>
+
+    <h1>ChapinTech</h1>
+
+    <p>Portal Técnico</p>
+
+  </div>
+
+  <div class="online-status">
+
+    <span class="dot"></span>
+
+    Activo
+
+  </div>
+
+</header>
+
+  <!-- ========================================
+QUEUE SCREEN
+======================================== -->
+
+<section id="queueScreen" class="screen active-screen">
+
+  <!-- HEADER -->
+
+  <div class="queue-header">
+
+    <div>
+
+      <h2>Casos Disponibles</h2>
+
+      <p>
+        Seleccione un incidente disponible.
+      </p>
+
+    </div>
+
+    <div class="queue-count">
+
+      <span id="caseCount">
+        5
+      </span>
+
+    </div>
+
+  </div>
+
+  <!-- ========================================
+  CASE LIST
+  ======================================== -->
+
+  <div class="queue-list">
+
+    <!-- CASE 1 -->
+
+    <div class="ticket-card">
+
+      <div class="ticket-top">
+
+        <div>
+
+          <h3>CT-1024</h3>
+
+          <p class="client">
+            Carlos Méndez
+          </p>
+
+        </div>
+
+        <div class="priority alta">
+          Alta
+        </div>
+
+      </div>
+
+      <div class="ticket-body">
+
+        <p>
+          <strong>Ubicación:</strong>
+          Zona 14
+        </p>
+
+        <p>
+          <strong>Problema:</strong>
+          Computadora no enciende.
+        </p>
+
+      </div>
+
+      <button
+        class="assign-btn"
+        data-id="CT-1024"
+        data-client="Carlos Méndez"
+        data-location="Zona 14"
+        data-problem="Computadora no enciende."
+      >
+        Asignarme
+      </button>
+
+    </div>
+
+    <!-- CASE 2 -->
+
+    <div class="ticket-card">
+
+      <div class="ticket-top">
+
+        <div>
+
+          <h3>CT-1025</h3>
+
+          <p class="client">
+            María López
+          </p>
+
+        </div>
+
+        <div class="priority media">
+          Media
+        </div>
+
+      </div>
+
+      <div class="ticket-body">
+
+        <p>
+          <strong>Ubicación:</strong>
+          Zona 10
+        </p>
+
+        <p>
+          <strong>Problema:</strong>
+          Impresora no responde.
+        </p>
+
+      </div>
+
+      <button
+        class="assign-btn"
+        data-id="CT-1025"
+        data-client="María López"
+        data-location="Zona 10"
+        data-problem="Impresora no responde."
+      >
+        Asignarme
+      </button>
+
+    </div>
+
+    <!-- CASE 3 -->
+
+    <div class="ticket-card">
+
+      <div class="ticket-top">
+
+        <div>
+
+          <h3>CT-1026</h3>
+
+          <p class="client">
+            NovaTech
+          </p>
+
+        </div>
+
+        <div class="priority alta">
+          Alta
+        </div>
+
+      </div>
+
+      <div class="ticket-body">
+
+        <p>
+          <strong>Ubicación:</strong>
+          Zona 15
+        </p>
+
+        <p>
+          <strong>Problema:</strong>
+          Servidor fuera de línea.
+        </p>
+
+      </div>
+
+      <button
+        class="assign-btn"
+        data-id="CT-1026"
+        data-client="NovaTech"
+        data-location="Zona 15"
+        data-problem="Servidor fuera de línea."
+      >
+        Asignarme
+      </button>
+
+    </div>
+
+    <!-- CASE 4 -->
+
+    <div class="ticket-card">
+
+      <div class="ticket-top">
+
+        <div>
+
+          <h3>CT-1027</h3>
+
+          <p class="client">
+            Pixel Studio
+          </p>
+
+        </div>
+
+        <div class="priority baja">
+          Baja
+        </div>
+
+      </div>
+
+      <div class="ticket-body">
+
+        <p>
+          <strong>Ubicación:</strong>
+          Zona 16
+        </p>
+
+        <p>
+          <strong>Problema:</strong>
+          Configuración de correo.
+        </p>
+
+      </div>
+
+      <button
+        class="assign-btn"
+        data-id="CT-1027"
+        data-client="Pixel Studio"
+        data-location="Zona 16"
+        data-problem="Configuración de correo."
+      >
+        Asignarme
+      </button>
+
+    </div>
+
+    <!-- CASE 5 -->
+
+    <div class="ticket-card">
+
+      <div class="ticket-top">
+
+        <div>
+
+          <h3>CT-1028</h3>
+
+          <p class="client">
+            Grupo Maya
+          </p>
+
+        </div>
+
+        <div class="priority media">
+          Media
+        </div>
+
+      </div>
+
+      <div class="ticket-body">
+
+        <p>
+          <strong>Ubicación:</strong>
+          Zona 11
+        </p>
+
+        <p>
+          <strong>Problema:</strong>
+          Fallo de red interna.
+        </p>
+
+      </div>
+
+      <button
+        class="assign-btn"
+        data-id="CT-1028"
+        data-client="Grupo Maya"
+        data-location="Zona 11"
+        data-problem="Fallo de red interna."
+      >
+        Asignarme
+      </button>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- ========================================
+ACTIVE SCREEN
+======================================== -->
+
+<section id="activeScreen" class="screen">
+
+  <!-- TIMER BAR -->
+
+  <div class="sla-bar">
+
+    <span id="timerLabel">
+      SLA ACTIVO
+    </span>
+
+    <strong id="mainTimer">
+      15:00
+    </strong>
+
+  </div>
+
+  <!-- ACTIVE TICKET -->
+
+  <div class="active-ticket">
+
+    <div class="priority alta">
+      Alta
+    </div>
+
+    <h2 id="ticketId">
+      CT-1024
+    </h2>
+
+    <div id="ticketStatus" class="status route">
+      En Camino
+    </div>
+
+    <div class="info-block">
+
+      <label>Cliente</label>
+
+      <p id="ticketClient"></p>
+
+    </div>
+
+    <div class="info-block">
+
+      <label>Ubicación</label>
+
+      <p id="ticketLocation"></p>
+
+    </div>
+
+    <div class="info-block">
+
+      <label>Problema</label>
+
+      <p id="ticketProblem"></p>
+
+    </div>
+
+    <!-- ARRIVAL -->
+
+    <div class="action-stack">
+
+      <button id="arrivalBtn" class="secondary-btn">
+        Llegué al Sitio
+      </button>
+
+      <button id="confirmBtn" class="success-btn hidden">
+        Cliente Confirmó
+      </button>
+
+      <button id="denyBtn" class="danger-btn hidden">
+        Cliente Rechazó
+      </button>
+
+    </div>
+
+    <!-- DOCUMENTATION -->
+
+    <div id="documentationBox" class="documentation hidden">
+
+      <h3>Documentación Técnica</h3>
+
+      <textarea
+        id="findingsInput"
+        placeholder="Hallazgos técnicos..."
+      ></textarea>
+
+      <textarea
+        id="solutionInput"
+        placeholder="Solución aplicada..."
+      ></textarea>
+
+      <button id="saveDocsBtn" class="primary-btn">
+        Guardar Documentación
+      </button>
+
+    </div>
+
+    <!-- ESCALATION -->
+
+    <button id="escalateBtn"
+      class="danger-btn hidden">
+
+      Escalar Caso
+
+    </button>
+
+    <!-- INVOICE -->
+
+    <div id="invoiceBox"
+      class="invoice-box hidden">
+
+      Factura enviada al cliente por correo.
+
+      <button id="paymentBtn"
+        class="success-btn">
+
+        Confirmar Pago
+
+      </button>
+
+    </div>
+
+    <!-- RESOLVE -->
+
+    <button id="resolveBtn"
+      class="success-btn hidden">
+
+      Resolver Caso
+
+    </button>
+
+  </div>
+
+</section>
+
+<script src="techportal.js"></script>
+</body>
+</html>
