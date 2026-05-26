@@ -192,14 +192,14 @@
           </div>
 
           <div class="ticket-list">
-            <article class="admin-ticket-row urgent" data-steps="Recibido,Asignado,Tecnico en Ruta,Diagnostico,En Reparacion">
+            <article class="admin-ticket-row" data-steps="Recibido,Asignado,Tecnico en Ruta,Diagnostico,En Reparacion">
               <div>
                 <strong>CT-1024</strong>
                 <p>Carlos Mendez - Computadora no enciende</p>
               </div>
               <div class="admin-ticket-progress"></div>
               <span>Zona 14</span>
-              <button type="button">Asignar</button>
+              <button type="button" class="assigned-tech-btn">Anna</button>
             </article>
 
             <article class="admin-ticket-row" data-steps="Recibido,Asignado,Tecnico en Ruta">
@@ -209,7 +209,7 @@
               </div>
               <div class="admin-ticket-progress"></div>
               <span>Zona 10</span>
-              <button type="button">Asignar</button>
+              <button type="button" class="assigned-tech-btn">Kevin</button>
             </article>
 
             <article class="admin-ticket-row" data-steps="Recibido">
@@ -219,13 +219,44 @@
               </div>
               <div class="admin-ticket-progress"></div>
               <span>Zona 11</span>
-              <button type="button">Asignar</button>
+              <button type="button" class="assign-tech-btn">Asignar</button>
             </article>
           </div>
         </div>
       </section>
     </section>
   </main>
+
+  <div class="support-modal is-collapsed" id="technicianModal" aria-hidden="true">
+    <div class="support-modal-backdrop" data-close-modal></div>
+
+    <section class="support-modal-panel" role="dialog" aria-modal="true" aria-labelledby="technicianModalTitle">
+      <div class="modal-heading">
+        <div>
+          <p>Asignacion tecnica</p>
+          <h2 id="technicianModalTitle">Tecnicos disponibles</h2>
+        </div>
+        <button type="button" class="modal-close-btn" data-close-modal aria-label="Cerrar">x</button>
+      </div>
+
+      <div class="technician-list">
+        <button type="button" class="technician-option" data-technician="Laura">
+          <strong>Laura</strong>
+          <span>Software y sistemas</span>
+        </button>
+
+        <button type="button" class="technician-option" data-technician="Diego">
+          <strong>Diego</strong>
+          <span>Hardware y redes</span>
+        </button>
+
+        <button type="button" class="technician-option" data-technician="Sofia">
+          <strong>Sofia</strong>
+          <span>Soporte remoto</span>
+        </button>
+      </div>
+    </section>
+  </div>
 </section>
 
 <script src="../stars.js"></script>

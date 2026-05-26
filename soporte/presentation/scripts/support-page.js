@@ -8,6 +8,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const clientToggleButtons = document.querySelectorAll('.client-toggle-btn[data-client-panel]');
   const clientContents = document.querySelectorAll('[data-client-content]');
   const statusSteps = ['Recibido', 'Asignado', 'Tecnico en Ruta', 'Diagnostico', 'En Reparacion', 'Finalizado'];
+  const technicianModal = document.getElementById('technicianModal');
+  let activeAssignButton = null;
 
   const demoTickets = [
     {
@@ -94,6 +96,18 @@ document.addEventListener('DOMContentLoaded', () => {
     `;
   }
 
+  function openTechnicianModal(assignButton) {
+    activeAssignButton = assignButton;
+    technicianModal.classList.remove('is-collapsed');
+    technicianModal.setAttribute('aria-hidden', 'false');
+  }
+
+  function closeTechnicianModal() {
+    technicianModal.classList.add('is-collapsed');
+    technicianModal.setAttribute('aria-hidden', 'true');
+    activeAssignButton = null;
+  }
+
   roleButtons.forEach((button) => {
     button.addEventListener('click', () => {
       setRoleView(button.dataset.role);
@@ -103,6 +117,29 @@ document.addEventListener('DOMContentLoaded', () => {
   clientToggleButtons.forEach((button) => {
     button.addEventListener('click', () => {
       setClientPanel(button.dataset.clientPanel);
+    });
+  });
+
+  document.querySelectorAll('.assign-tech-btn').forEach((button) => {
+    button.addEventListener('click', () => {
+      openTechnicianModal(button);
+    });
+  });
+
+  document.querySelectorAll('[data-close-modal]').forEach((button) => {
+    button.addEventListener('click', closeTechnicianModal);
+  });
+
+  document.querySelectorAll('.technician-option').forEach((button) => {
+    button.addEventListener('click', () => {
+      if (!activeAssignButton) {
+        return;
+      }
+
+      activeAssignButton.textContent = button.dataset.technician;
+      activeAssignButton.classList.remove('assign-tech-btn');
+      activeAssignButton.classList.add('assigned-tech-btn');
+      closeTechnicianModal();
     });
   });
 
