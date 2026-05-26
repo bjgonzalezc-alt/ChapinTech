@@ -91,12 +91,13 @@ body {
 }
 
 .support-title {
-  margin: 0 auto 18px;
-  max-width: 760px;
+  margin: 0 0 22px;
+  max-width: 260px;
   font-family: 'Orbitron', sans-serif;
-  font-size: clamp(34px, 5vw, 58px);
+  font-size: clamp(18px, 2.2vw, 28px);
   font-weight: 800;
-  line-height: 1.02;
+  line-height: 1.1;
+  text-align: left;
   background: linear-gradient(90deg, #bffaff, #8fd7ff, #c9ffd9);
   -webkit-background-clip: text;
   background-clip: text;
@@ -657,7 +658,7 @@ body {
   }
 
   .support-title {
-    font-size: clamp(32px, 12vw, 44px);
+    font-size: clamp(18px, 6vw, 24px);
   }
 
   .module-heading,
@@ -710,7 +711,7 @@ body {
   }
 
   .support-title {
-    font-size: clamp(28px, 11vw, 38px);
+    font-size: clamp(17px, 6vw, 22px);
   }
 
   .role-preview {
