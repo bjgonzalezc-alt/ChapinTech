@@ -63,14 +63,178 @@
   <main class="support-content">
     <section class="support-panel">
       <p class="support-kicker">Modulo de soporte</p>
-      <h1 class="support-title">Solicitar Soporte Tecnico</h1>
-      <p class="support-copy">
-        Este sera el espacio principal del modulo de soporte. Aqui construiremos el flujo de solicitud, seguimiento y atencion con la misma identidad visual de ChapinTech.
-      </p>
+      <h1 class="support-title">Soporte tecnico</h1>
 
-      <div class="support-workspace">
-        Area de trabajo del modulo soporte
+      <div class="role-preview" role="tablist" aria-label="Seleccionar vista de soporte">
+        <button class="role-chip active" type="button" data-role="client" aria-selected="true">Cliente</button>
+        <button class="role-chip" type="button" data-role="admin" aria-selected="false">Administrador</button>
       </div>
+
+      <section class="support-module client-module" data-role-panel="client" aria-labelledby="client-view-title">
+        <div class="module-heading">
+          <div>
+            <p>Vista cliente</p>
+            <h2 id="client-view-title">Consultar o crear ticket</h2>
+          </div>
+          <span class="module-badge">Acceso publico</span>
+        </div>
+
+        <div class="client-toggle-grid">
+          <button class="client-toggle-btn active" type="button" data-client-panel="search" aria-expanded="true">
+            Buscar ticket
+          </button>
+
+          <button class="client-toggle-btn" type="button" data-client-panel="create" aria-expanded="false">
+            Crear solicitud
+          </button>
+        </div>
+
+        <div class="client-actions" data-client-content="search">
+          <form class="support-card ticket-search-form">
+            <h3>Buscar ticket</h3>
+            <p>El cliente consulta el estado usando codigo y correo o telefono.</p>
+
+            <div class="search-fields">
+              <label for="ticketCode">
+                Codigo de ticket
+                <input id="ticketCode" name="ticketCode" type="text" placeholder="CT-1024" autocomplete="off">
+              </label>
+
+              <label for="ticketContact">
+                Correo o telefono
+                <input id="ticketContact" name="ticketContact" type="text" placeholder="cliente@email.com">
+              </label>
+            </div>
+
+            <button type="submit">Buscar ticket</button>
+          </form>
+
+          <article class="support-card ticket-result-card is-collapsed" id="ticketResult" aria-live="polite">
+          </article>
+        </div>
+
+        <div class="create-request-shell is-collapsed" data-client-content="create">
+          <form class="support-card create-ticket-form" id="createTicketForm">
+            <div class="form-title-row">
+              <div>
+                <h3>Crear nueva solicitud</h3>
+                <p>Formulario base para levantar un ticket desde soporte.</p>
+              </div>
+              <span class="module-badge soft">Pendiente API</span>
+            </div>
+
+            <div class="form-grid">
+              <label>
+                Nombre completo
+                <input type="text" placeholder="Nombre del cliente">
+              </label>
+
+              <label>
+                Correo
+                <input type="email" placeholder="correo@ejemplo.com">
+              </label>
+
+              <label>
+                Telefono
+                <input type="tel" placeholder="+502 1234-5678">
+              </label>
+
+              <label>
+                Servicio
+                <select>
+                  <option>Soporte tecnico</option>
+                  <option>Instalacion de redes</option>
+                  <option>Camaras de seguridad</option>
+                  <option>Mantenimiento</option>
+                  <option>Soporte remoto</option>
+                </select>
+              </label>
+            </div>
+
+            <label>
+              Descripcion del problema
+              <textarea placeholder="Describe el problema tecnico..."></textarea>
+            </label>
+
+            <button type="button">Crear ticket</button>
+          </form>
+        </div>
+      </section>
+
+      <section class="support-module admin-module is-collapsed" data-role-panel="admin" aria-labelledby="admin-view-title">
+        <div class="module-heading">
+          <div>
+            <p>Vista administrador</p>
+            <h2 id="admin-view-title">Tickets disponibles y operacion</h2>
+          </div>
+          <span class="module-badge admin">Acceso por rol</span>
+        </div>
+
+        <div class="admin-stats-grid">
+          <article class="stat-tile">
+            <p>Pendientes</p>
+            <strong>8</strong>
+          </article>
+
+          <article class="stat-tile">
+            <p>En ruta</p>
+            <strong>5</strong>
+          </article>
+
+          <article class="stat-tile">
+            <p>Urgentes</p>
+            <strong>3</strong>
+          </article>
+
+          <article class="stat-tile">
+            <p>Tecnicos libres</p>
+            <strong>4</strong>
+          </article>
+        </div>
+
+        <div class="admin-board">
+          <div class="admin-toolbar">
+            <h3>Cola de tickets</h3>
+            <div class="admin-filters">
+              <button type="button" class="active">Todos</button>
+              <button type="button">Alta</button>
+              <button type="button">Sin tecnico</button>
+            </div>
+          </div>
+
+          <div class="ticket-list">
+            <article class="admin-ticket-row urgent">
+              <div>
+                <strong>CT-1024</strong>
+                <p>Carlos Mendez - Computadora no enciende</p>
+              </div>
+              <span class="priority high">Alta</span>
+              <span>Zona 14</span>
+              <button type="button">Asignar</button>
+            </article>
+
+            <article class="admin-ticket-row">
+              <div>
+                <strong>CT-1025</strong>
+                <p>Maria Lopez - Impresora no responde</p>
+              </div>
+              <span class="priority medium">Media</span>
+              <span>Zona 10</span>
+              <button type="button">Asignar</button>
+            </article>
+
+            <article class="admin-ticket-row">
+              <div>
+                <strong>CT-1028</strong>
+                <p>Grupo Maya - Fallo de red interna</p>
+              </div>
+              <span class="priority medium">Media</span>
+              <span>Zona 11</span>
+              <button type="button">Asignar</button>
+            </article>
+          </div>
+        </div>
+      </section>
     </section>
   </main>
 </section>
